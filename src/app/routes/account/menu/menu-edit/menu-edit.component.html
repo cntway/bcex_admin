@@ -1,0 +1,67 @@
+<div class="modal-header">
+    <div class="modal-title">{{title|translate}}</div>
+</div>
+<form #f="ngForm" (ngSubmit)="save()" nz-form [nzType]="'horizontal'">
+
+    <div nz-form-item nz-row class="mb-sm">
+
+        <div nz-form-label nz-col [nzSpan]="4">
+            <label>名称</label>
+        </div>
+        <div nz-form-control nz-col [nzSpan]="8">
+            <input nz-input [(ngModel)]="i.menuname" name="menuname" required />
+        </div>
+
+        <div nz-form-label nz-col [nzSm]="4">
+            <label>选择父级菜单</label>
+        </div>
+        <div nz-form-control nz-col [nzSm]="8">
+            <app-menue-select [(ngModel)]="i.parentid" name="parentid" [showText]="i.cur_parent"></app-menue-select>
+        </div>
+    </div>
+
+    <div nz-form-item nz-row class="mb-sm">
+        <div nz-form-label nz-col [nzSpan]="4">
+            <label>链接</label>
+        </div>
+        <div nz-form-control nz-col [nzSpan]="8">
+            <input nz-input [(ngModel)]="i.pagehref" name="pagehref" required />
+        </div>
+        <div nz-form-label nz-col [nzSpan]="4">
+            <label>权限标识</label>
+        </div>
+        <div nz-form-control nz-col [nzSpan]="8">
+            <input nz-input [(ngModel)]="i.funckey" name="funckey" required />
+        </div>
+    </div>
+
+
+    <div nz-form-item nz-row class="mb-sm">
+        <div nz-form-label nz-col [nzSpan]="4">
+            <label>图标</label>
+        </div>
+        <div nz-form-control nz-col [nzSpan]="8">
+            <app-select [(ngModel)]="i.remark" name="remark" [options]='iconOptions' required></app-select>
+        </div>
+        <div nz-form-label nz-col [nzSpan]="4">
+            <label>可见</label>
+        </div>
+        <div nz-form-control nz-col [nzSpan]="8">
+            <app-select [(ngModel)]="i.isshow" name="isshow" [options]='booleanOptions' required></app-select>
+        </div>
+    </div>
+
+    <div nz-form-item nz-row class="mb-sm">
+        <div nz-form-label nz-col [nzSpan]="4">
+            <label>排序</label>
+        </div>
+        <div nz-form-control nz-col [nzSpan]="8">
+            <input nz-input [(ngModel)]="i.sortid" name="sortid" required />
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button nz-button type="button" (click)="close()">关闭</button>
+        <button nz-button [disabled]="!f.form.valid || !f.form.dirty" [nzType]="'primary'">保存</button>
+    </div>
+</form>

@@ -1,0 +1,15 @@
+<nz-input [(ngModel)]="showText" [nzReadonly]="nzReadonly">
+    <ng-template #addOnAfter>
+        <a (click)="showModal()">...</a>
+    </ng-template>
+</nz-input>
+
+<nz-modal [nzVisible]="isVisible" [nzTitle]="'选择菜单'" [nzWidth]="'500px'" (nzOnCancel)="handleCancel($event)" [nzContent]="modalContent"
+    [nzFooter]="modalFooter" >
+    <ng-template #modalContent>
+        <nz-tree [nzNodes]="nodes" [nzCheckable]="nzCheckable" [nzOptions]="options" (nzFocus) ="nzFocus($event)" (nzEvent)="onEvent($event)"></nz-tree>
+    </ng-template>
+    <ng-template #modalFooter>
+        <button nz-button type="button" [nzType]="'primary'" (click)="select()">确定</button>
+    </ng-template>
+</nz-modal>

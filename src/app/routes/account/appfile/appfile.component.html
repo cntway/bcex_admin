@@ -1,0 +1,161 @@
+<nz-card>
+    <ng-template #body>
+        <form class="cform" nz-form [formGroup]="validateForm" (ngSubmit)="_submitForm()">
+            <div nz-form-item nz-row>
+                <div nz-form-label nz-col [nzSm]="6" [nzXs]="24">
+                    <label for="componentName" nz-form-item-required>componentName
+                        <nz-tooltip [nzTitle]="'组件名称，如user，则生成 UserComponent 组件'">
+                            <i nz-tooltip class="anticon anticon-question-circle-o"></i>
+                        </nz-tooltip>
+                    </label>
+                </div>
+                <div nz-form-control nz-col [nzSm]="14" [nzXs]="24" nzHasFeedback>
+                    <nz-input [nzSize]="'large'" formControlName="componentName" [nzId]="'componentName'"></nz-input>
+                    <div nz-form-explain *ngIf="getFormControl(1, 'componentName').dirty&&getFormControl(1, 'componentName').hasError('required')">The input is not valid componentName</div>
+                </div>
+            </div>
+
+            <div nz-form-item nz-row>
+                <div nz-form-label nz-col [nzSm]="6" [nzXs]="24">
+                    <label for="columns" nz-form-item-required>
+                        <span>
+                            columns
+                            <nz-tooltip [nzTitle]="'查询接口columns定义'">
+                                <i nz-tooltip class="anticon anticon-question-circle-o"></i>
+                            </nz-tooltip>
+                        </span>
+                    </label>
+                </div>
+                <div nz-form-control nz-col [nzSm]="14" [nzXs]="24" nzHasFeedback>
+                    <nz-input [nzSize]="'large'" formControlName="columns" [nzId]="'columns'"></nz-input>
+                    <div nz-form-explain *ngIf="getFormControl(1, 'columns').dirty&&getFormControl(1, 'columns').hasError('required')">Please input your columns!</div>
+                </div>
+            </div>
+
+
+            <div nz-form-item nz-row>
+                <div nz-form-label nz-col [nzSm]="6" [nzXs]="24">
+                    <label for="loadApi" nz-form-item-required>loadApi
+                        <nz-tooltip [nzTitle]="'loadApi'">
+                            <i nz-tooltip class="anticon anticon-question-circle-o"></i>
+                        </nz-tooltip>
+                    </label>
+                </div>
+                <div nz-form-control nz-col [nzSm]="14" [nzXs]="24" nzHasFeedback>
+                    <nz-input [nzSize]="'large'" formControlName="loadApi" [nzId]="'loadApi'"></nz-input>
+                    <div nz-form-explain *ngIf="getFormControl(1, 'loadApi').dirty&&getFormControl(1, 'loadApi').hasError('required')">The input is not valid componentName</div>
+                </div>
+            </div>
+
+            <div nz-form-item nz-row>
+                <div nz-form-label nz-col [nzSm]="6" [nzXs]="24">
+                    <label for="deleteApi" nz-form-item-required>deleteApi
+                        <nz-tooltip [nzTitle]="'deleteApi'">
+                            <i nz-tooltip class="anticon anticon-question-circle-o"></i>
+                        </nz-tooltip>
+                    </label>
+                </div>
+                <div nz-form-control nz-col [nzSm]="14" [nzXs]="24" nzHasFeedback>
+                    <nz-input [nzSize]="'large'" formControlName="deleteApi" [nzId]="'deleteApi'"></nz-input>
+                    <div nz-form-explain *ngIf="getFormControl(1, 'deleteApi').dirty&&getFormControl(1, 'deleteApi').hasError('required')">The input is not valid componentName</div>
+                </div>
+            </div>
+
+
+            <div nz-form-item nz-row>
+                <div nz-form-label nz-col [nzSm]="6" [nzXs]="24">
+                    <label for="deleteModel" nz-form-item-required>
+                        <span>
+                            deleteModel
+                            <nz-tooltip [nzTitle]="'删除接口的model'">
+                                <i nz-tooltip class="anticon anticon-question-circle-o"></i>
+                            </nz-tooltip>
+                        </span>
+                    </label>
+                </div>
+                <div nz-form-control nz-col [nzSm]="14" [nzXs]="24" nzHasFeedback>
+                    <nz-input [nzSize]="'large'" formControlName="deleteModel" [nzId]="'deleteModel'"></nz-input>
+                    <div nz-form-explain *ngIf="getFormControl(1, 'deleteModel').dirty&&getFormControl(1, 'deleteModel').hasError('required')">Please input your deleteModel!</div>
+                </div>
+            </div>
+
+            <div nz-form-item nz-row style="margin-bottom:8px;">
+                <div nz-form-control nz-col [nzSpan]="14" [nzOffset]="6">
+                    <button nz-button [nzSize]="'large'" [nzType]="'primary'">生成查询组件</button>
+                </div>
+            </div>
+        </form>
+    </ng-template>
+</nz-card>
+
+<nz-card>
+    <ng-template #body>
+        <form class="cform" nz-form [formGroup]="editForm" (ngSubmit)="_submitEditForm()">
+
+            <div nz-form-item nz-row>
+                <div nz-form-label nz-col [nzSm]="6" [nzXs]="24">
+                    <label for="componentName" nz-form-item-required>componentName
+                        <nz-tooltip [nzTitle]="'组件名称，如user，则生成 UserComponent 组件'">
+                            <i nz-tooltip class="anticon anticon-question-circle-o"></i>
+                        </nz-tooltip>
+                    </label>
+                </div>
+                <div nz-form-control nz-col [nzSm]="14" [nzXs]="24" nzHasFeedback>
+                    <nz-input [nzSize]="'large'" formControlName="componentName" [nzId]="'componentName'"></nz-input>
+                    <div nz-form-explain *ngIf="getFormControl(2, 'componentName').dirty&&getFormControl(2, 'componentName').hasError('required')">The input is not valid componentName</div>
+                </div>
+            </div>
+            <div nz-form-item nz-row>
+                <div nz-form-label nz-col [nzSm]="6" [nzXs]="24">
+                    <label for="columns" nz-form-item-required>columns
+                        <nz-tooltip [nzTitle]="'columns'">
+                            <i nz-tooltip class="anticon anticon-question-circle-o"></i>
+                        </nz-tooltip>
+                    </label>
+                </div>
+                <div nz-form-control nz-col [nzSm]="14" [nzXs]="24" nzHasFeedback>
+                    <nz-input [nzSize]="'large'" formControlName="columns" [nzId]="'columns'"></nz-input>
+                    <div nz-form-explain *ngIf="getFormControl(2, 'columns').dirty&&getFormControl(2, 'columns').hasError('required')">The input is not valid componentName</div>
+                </div>
+            </div>
+
+            <div nz-form-item nz-row>
+                <div nz-form-label nz-col [nzSm]="6" [nzXs]="24">
+                    <label for="editModel" nz-form-item-required>editModel
+                        <nz-tooltip [nzTitle]="'editModel'">
+                            <i nz-tooltip class="anticon anticon-question-circle-o"></i>
+                        </nz-tooltip>
+                    </label>
+                </div>
+                <div nz-form-control nz-col [nzSm]="14" [nzXs]="24" nzHasFeedback>
+                    <nz-input [nzSize]="'large'" formControlName="editModel" [nzId]="'editModel'"></nz-input>
+                    <div nz-form-explain *ngIf="getFormControl(2, 'editModel').dirty&&getFormControl(2, 'editModel').hasError('required')">The input is not valid componentName</div>
+                </div>
+            </div>
+
+
+            <div nz-form-item nz-row>
+                <div nz-form-label nz-col [nzSm]="6" [nzXs]="24">
+                    <label for="updateApi" nz-form-item-required>
+                        <span>
+                            updateApi
+                            <nz-tooltip [nzTitle]="'删除接口的model'">
+                                <i nz-tooltip class="anticon anticon-question-circle-o"></i>
+                            </nz-tooltip>
+                        </span>
+                    </label>
+                </div>
+                <div nz-form-control nz-col [nzSm]="14" [nzXs]="24" nzHasFeedback>
+                    <nz-input [nzSize]="'large'" formControlName="updateApi" [nzId]="'updateApi'"></nz-input>
+                    <div nz-form-explain *ngIf="getFormControl(2, 'updateApi').dirty&&getFormControl(2, 'updateApi').hasError('required')">Please input your deleteModel!</div>
+                </div>
+            </div>
+
+            <div nz-form-item nz-row style="margin-bottom:8px;">
+                <div nz-form-control nz-col [nzSpan]="14" [nzOffset]="6">
+                    <button nz-button [nzSize]="'large'" [nzType]="'primary'">生成编辑组件</button>
+                </div>
+            </div>
+        </form>
+    </ng-template>
+</nz-card>

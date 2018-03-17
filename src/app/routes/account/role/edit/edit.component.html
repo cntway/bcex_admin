@@ -1,0 +1,25 @@
+<div class="modal-header">
+    <div class="modal-title">{{title|translate}}</div>
+</div>
+<form #f="ngForm" (ngSubmit)="save()" nz-form [nzType]="'horizontal'">
+
+    <div nz-form-item nz-row class="mb-sm">
+        <div nz-form-label nz-col [nzSm]="4">
+            <label for="name">{{"角色名称"|translate}}</label>
+        </div>
+        <div nz-form-control nz-col [nzSm]="8">
+            <input nz-input [(ngModel)]="i.rolename" name="roleName" required/>
+        </div>
+        <div nz-form-label nz-col [nzSpan]="4">
+            <label>{{"角色类型"|translate}}</label>
+        </div>
+        <div nz-form-control nz-col [nzSpan]="8">
+            <app-zselect [(ngModel)]="i.roletype" [data]="options" name="roletype" required></app-zselect>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button nz-button type="button" (click)="close()">{{"关闭"|translate}}</button>
+        <button nz-button [disabled]="!f.form.valid || !f.form.dirty" [nzLoading]="http.loading" [nzType]="'primary'">{{"保存"|translate}}</button>
+    </div>
+</form>

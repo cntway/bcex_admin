@@ -1,0 +1,54 @@
+<div class="modal-header">
+    <div class="modal-title">{{title|translate}}</div>
+</div>
+
+<form #f="ngForm" nz-form [formGroup]="validateForm" (ngSubmit)="_submitForm()">
+
+    <div nz-form-item nz-row>
+        <div nz-form-label nz-col [nzSm]="6" [nzXs]="24">
+            <label for="username" nz-form-item-required>
+                <span>
+                    用户姓名
+                </span>
+            </label>
+        </div>
+        <div nz-form-control nz-col [nzSm]="14" [nzXs]="24" nzHasFeedback>
+            <nz-input [nzSize]="'large'" formControlName="username"></nz-input>
+            <div nz-form-explain *ngIf="getFormControl('username').dirty&&getFormControl('username').hasError('required')">{{'Please input username!'|translate}}</div>
+        </div>
+    </div>
+
+    <div nz-form-item nz-row>
+        <div nz-form-label nz-col [nzSm]="6" [nzXs]="24">
+            <label for="jsoncache" nz-form-item-required>
+                <span>
+                    附属字段
+                </span>
+            </label>
+        </div>
+        <div nz-form-control nz-col [nzSm]="14" [nzXs]="24" nzHasFeedback>
+            <nz-input [nzSize]="'large'" formControlName="jsoncache"></nz-input>
+            <div nz-form-explain *ngIf="getFormControl('jsoncache').dirty&&getFormControl('jsoncache').hasError('required')">{{'Please input jsoncache!'|translate}}</div>
+        </div>
+    </div>
+
+    <div nz-form-item nz-row>
+        <div nz-form-label nz-col [nzSm]="6" [nzXs]="24">
+            <label for="nikename" nz-form-item-required>
+                <span>
+                    用户昵称
+                </span>
+            </label>
+        </div>
+        <div nz-form-control nz-col [nzSm]="14" [nzXs]="24" nzHasFeedback>
+            <nz-input [nzSize]="'large'" formControlName="nikename"></nz-input>
+            <div nz-form-explain *ngIf="getFormControl('nikename').dirty&&getFormControl('nikename').hasError('required')">{{'Please input nikename!'|translate}}</div>
+        </div>
+    </div>
+
+</form>
+
+<div class="modal-footer">
+    <button nz-button type="button" (click)="close()">{{"关闭"|translate}}</button>
+    <button nz-button (click)="save()" [disabled]="!f.form.valid || !f.form.dirty" [nzLoading]="http.loading" [nzType]="'primary'">{{"保存"|translate}}</button>
+</div>
