@@ -1,165 +1,200 @@
 {
     "app": {
-        "name": "Alain",
-        "description": "Ng-zorro admin panel front-end framework"
+        "name": "BCEX",
+        "description": "BCEX ADMIN"
     },
     "user": {
         "name": "Admin",
         "avatar": "./assets/img/zorro.svg",
-        "email": "cipchk@qq.com"
+        "email": "xiaohai@qq.com"
     },
-    "menu": [{
+    "menu": [
+        {
             "text": "Pro",
             "i18n": "pro",
             "group": true,
-            "children": [{
-                "text": "Form Page",
-                "i18n": "form",
-                "link": "/pro/form",
-                "icon": "icon-note",
-                "children": [{
-                    "text": "Step Form",
-                    "link": "/pro/form/step-form",
-                    "i18n": "step-form"
-                }, {
-                    "text": "Advanced Form",
-                    "link": "/pro/form/advanced-form",
-                    "i18n": "advanced-form"
-                }]
-            }, {
-                "text": "List",
-                "i18n": "pro-list",
-                "link": "/pro/list",
-                "icon": "icon-grid",
-                "children": [{
-                    "text": "Table List",
-                    "link": "/pro/list/table-list",
-                    "i18n": "pro-table-list"
-                }, {
-                    "text": "Basic List",
-                    "link": "/pro/list/basic-list",
-                    "i18n": "pro-basic-list"
-                }, {
-                    "text": "Card List",
-                    "link": "/pro/list/card-list",
-                    "i18n": "pro-card-list"
-                }, {
-                    "text": "Cover Card List",
-                    "link": "/pro/list/cover-card-list",
-                    "i18n": "pro-cover-card-list"
-                }, {
-                    "text": "Filter Card List",
-                    "link": "/pro/list/filter-card-list",
-                    "i18n": "pro-filter-card-list"
-                }, {
-                    "text": "Search",
-                    "link": "/pro/list/search",
-                    "i18n": "pro-search"
-                }]
-            }, {
-                "text": "Profile",
-                "i18n": "pro-profile",
-                "link": "/pro/profile",
-                "icon": "icon-book-open",
-                "children": [{
-                    "text": "Basic",
-                    "link": "/pro/profile/basic",
-                    "i18n": "pro-profile-basic"
-                }, {
-                    "text": "Advanced",
-                    "link": "/pro/profile/advanced",
-                    "i18n": "pro-profile-advanced"
-                }]
-            }, {
-                "text": "Result",
-                "i18n": "pro-result",
-                "link": "/pro/result",
-                "icon": "icon-check",
-                "children": [{
-                    "text": "Success",
-                    "link": "/pro/result/success",
-                    "i18n": "pro-result-success"
-                }, {
-                    "text": "Fail",
-                    "link": "/pro/result/fail",
-                    "i18n": "pro-result-fail"
-                }]
-            }, {
-                "text": "Exception",
-                "i18n": "pro-exception",
-                "link": "/",
-                "icon": "icon-fire",
-                "children": [{
-                    "text": "403",
-                    "link": "/403",
-                    "reuse": false
-                }, {
-                    "text": "404",
-                    "link": "/404",
-                    "reuse": false
-                }, {
-                    "text": "500",
-                    "link": "/500",
-                    "reuse": false
-                }]
-            }, {
-                "text": "User",
-                "i18n": "pro-user",
-                "link": "/passport",
-                "icon": "icon-user",
-                "children": [{
-                    "text": "login",
-                    "link": "/passport/login",
-                    "i18n": "pro-login",
-                    "reuse": false
-                }, {
-                    "text": "register",
-                    "link": "/passport/register",
-                    "i18n": "pro-register",
-                    "reuse": false
-                }, {
-                    "text": "register result",
-                    "link": "/passport/register-result",
-                    "i18n": "pro-register-result",
-                    "reuse": false
-                }]
-            }]
+            "children": [
+                {
+                    "text": "Form Page",
+                    "i18n": "form",
+                    "link": "/pro/form",
+                    "icon": "icon-note",
+                    "children": [
+                        {
+                            "text": "Step Form",
+                            "link": "/pro/form/step-form",
+                            "i18n": "step-form"
+                        },
+                        {
+                            "text": "Advanced Form",
+                            "link": "/pro/form/advanced-form",
+                            "i18n": "advanced-form"
+                        }
+                    ]
+                },
+                {
+                    "text": "List",
+                    "i18n": "pro-list",
+                    "link": "/pro/list",
+                    "icon": "icon-grid",
+                    "children": [
+                        {
+                            "text": "Table List",
+                            "link": "/pro/list/table-list",
+                            "i18n": "pro-table-list"
+                        },
+                        {
+                            "text": "Basic List",
+                            "link": "/pro/list/basic-list",
+                            "i18n": "pro-basic-list"
+                        },
+                        {
+                            "text": "Card List",
+                            "link": "/pro/list/card-list",
+                            "i18n": "pro-card-list"
+                        },
+                        {
+                            "text": "Cover Card List",
+                            "link": "/pro/list/cover-card-list",
+                            "i18n": "pro-cover-card-list"
+                        },
+                        {
+                            "text": "Filter Card List",
+                            "link": "/pro/list/filter-card-list",
+                            "i18n": "pro-filter-card-list"
+                        },
+                        {
+                            "text": "Search",
+                            "link": "/pro/list/search",
+                            "i18n": "pro-search"
+                        }
+                    ]
+                },
+                {
+                    "text": "Profile",
+                    "i18n": "pro-profile",
+                    "link": "/pro/profile",
+                    "icon": "icon-book-open",
+                    "children": [
+                        {
+                            "text": "Basic",
+                            "link": "/pro/profile/basic",
+                            "i18n": "pro-profile-basic"
+                        },
+                        {
+                            "text": "Advanced",
+                            "link": "/pro/profile/advanced",
+                            "i18n": "pro-profile-advanced"
+                        }
+                    ]
+                },
+                {
+                    "text": "Result",
+                    "i18n": "pro-result",
+                    "link": "/pro/result",
+                    "icon": "icon-check",
+                    "children": [
+                        {
+                            "text": "Success",
+                            "link": "/pro/result/success",
+                            "i18n": "pro-result-success"
+                        },
+                        {
+                            "text": "Fail",
+                            "link": "/pro/result/fail",
+                            "i18n": "pro-result-fail"
+                        }
+                    ]
+                },
+                {
+                    "text": "Exception",
+                    "i18n": "pro-exception",
+                    "link": "/",
+                    "icon": "icon-fire",
+                    "children": [
+                        {
+                            "text": "403",
+                            "link": "/403",
+                            "reuse": false
+                        },
+                        {
+                            "text": "404",
+                            "link": "/404",
+                            "reuse": false
+                        },
+                        {
+                            "text": "500",
+                            "link": "/500",
+                            "reuse": false
+                        }
+                    ]
+                },
+                {
+                    "text": "User",
+                    "i18n": "pro-user",
+                    "link": "/passport",
+                    "icon": "icon-user",
+                    "children": [
+                        {
+                            "text": "login",
+                            "link": "/passport/login",
+                            "i18n": "pro-login",
+                            "reuse": false
+                        },
+                        {
+                            "text": "register",
+                            "link": "/passport/register",
+                            "i18n": "pro-register",
+                            "reuse": false
+                        },
+                        {
+                            "text": "register result",
+                            "link": "/passport/register-result",
+                            "i18n": "pro-register-result",
+                            "reuse": false
+                        }
+                    ]
+                }
+            ]
         },
         {
             "text": "账户",
             "translate": "账户",
             "group": true,
-            "children": [{
-                "text": "账户管理",
-                "translate": "账户管理",
-                "icon": "icon-grid",
-                "link": "/account",
-                "children": [{
-                        "text": "管理员",
-                        "link": "/account/manager",
-                        "translate": "管理员",
-                        "badge": 0
-                    },
-                    {
-                        "text": "机构管理",
-                        "translate": "机构管理",
-                        "link": "/account/organization",
-                        "badge": 0
-                    },
-                    {
-                        "text": "菜单管理",
-                        "translate": "菜单管理",
-                        "link": "/account/menu",
-                        "badge": 0
-                    },
-                    {
-                        "text": "角色管理",
-                        "translate": "角色管理",
-                        "link": "/account/role",
-                        "badge": 0
-                    }
-                ]
-            }]
+            "children": [
+                {
+                    "text": "账户管理",
+                    "translate": "账户管理",
+                    "icon": "icon-grid",
+                    "link": "/account",
+                    "children": [
+                        {
+                            "text": "管理员",
+                            "link": "/account/manager",
+                            "translate": "管理员",
+                            "badge": 0
+                        },
+                        {
+                            "text": "机构管理",
+                            "translate": "机构管理",
+                            "link": "/account/organization",
+                            "badge": 0
+                        },
+                        {
+                            "text": "菜单管理",
+                            "translate": "菜单管理",
+                            "link": "/account/menu",
+                            "badge": 0
+                        },
+                        {
+                            "text": "角色管理",
+                            "translate": "角色管理",
+                            "link": "/account/role",
+                            "badge": 0
+                        }
+                    ]
+                }
+            ]
         }
     ]
 }

@@ -108,6 +108,9 @@ export class MenuSelectComponent implements OnInit, ControlValueAccessor {
     onEvent(ev: any) {
         const me = this;
         if (ev['eventName'] === 'initialized') {
+            if ((this._value === undefined) || (this._value === null) || (this._value === '')) {
+                return;
+            }
             const queryParam = new QueryParam('menuid', this._value, QueryOp.op_eq);
             this.sdk.sys_menu_get_api([queryParam], 1, 1).subscribe((res) => {
                 if (res['results'].length === 1) {

@@ -8,6 +8,7 @@ import {
 import * as FileSaver from 'file-saver';
 import * as skd_columns from '@sdk/sdk.columns';
 import * as sdk_model from '@sdk/sdk.model';
+import * as sdk_api from '@sdk/sdk.service';
 
 
 @Component({
@@ -23,9 +24,39 @@ export class AppfileComponent implements OnInit {
 
     _sdk_model = sdk_model;
     _skd_columns = skd_columns;
-
     validateForm: FormGroup;
     editForm: FormGroup;
+    searchColumnsOptions = [];
+    searchModelOptions = [];
+    searchApiOptions = [];
+
+
+    searchColumns(event) {
+        this.searchColumnsOptions = [];
+        for (let key in this._skd_columns) {
+            if (key.indexOf(event) > -1) {
+                this.searchColumnsOptions.push([key]);
+            }
+        }
+    }
+
+    searchModel(event) {
+        this.searchModelOptions = [];
+        for (let key in this._sdk_model) {
+            if (key.indexOf(event) > -1) {
+                this.searchModelOptions.push([key]);
+            }
+        }
+    }
+
+    searchApi(event) {
+        this.searchApiOptions = [];
+        for (let key in this._sdk_api) {
+            if (key.indexOf(event) > -1) {
+                this.searchApiOptions.push([key]);
+            }
+        }
+    }
 
     _submitForm() {
         // for (const i in this.validateForm.controls) {
@@ -60,12 +91,13 @@ export class AppfileComponent implements OnInit {
 
     }
 
-    constructor(private fb: FormBuilder) {
+    constructor(private fb: FormBuilder, private _sdk_api: sdk_api.SdkService) {
     }
 
 
 
     ngOnInit() {
+        console.log(this._skd_columns);
         this.validateForm = this.fb.group({
             deleteApi: [null, [Validators.required]],
             loadApi: [null, [Validators.required]],

@@ -60,7 +60,7 @@ export class SdkBase {
                     }
                 });
             case 'delete':
-                return this.http.delete(url, {}, {}).filter(res => {
+                return this.http.request('delete', url, { body: paramesModel.field2dict() }).filter((res: any) => {
                     if (res.error === '0') {
                         return true;
                     } else {

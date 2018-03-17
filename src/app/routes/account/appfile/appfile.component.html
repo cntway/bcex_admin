@@ -27,7 +27,11 @@
                     </label>
                 </div>
                 <div nz-form-control nz-col [nzSm]="14" [nzXs]="24" nzHasFeedback>
-                    <nz-input [nzSize]="'large'" formControlName="columns" [nzId]="'columns'"></nz-input>
+                    <nz-select nzAllowClear [nzPlaceHolder]="'input search text'" [nzFilter]="false" [(ngModel)]="columns" [nzSize]="'large'"
+                        (nzSearchChange)="searchColumns($event)" [nzNotFoundContent]="'无法找到'" formControlName="columns" nzShowSearch>
+                        <nz-option *ngFor="let option of searchColumnsOptions" [nzLabel]="option[0]" [nzValue]="option[0]">
+                        </nz-option>
+                    </nz-select>
                     <div nz-form-explain *ngIf="getFormControl(1, 'columns').dirty&&getFormControl(1, 'columns').hasError('required')">Please input your columns!</div>
                 </div>
             </div>
@@ -42,7 +46,12 @@
                     </label>
                 </div>
                 <div nz-form-control nz-col [nzSm]="14" [nzXs]="24" nzHasFeedback>
-                    <nz-input [nzSize]="'large'" formControlName="loadApi" [nzId]="'loadApi'"></nz-input>
+                    <nz-select nzAllowClear [nzPlaceHolder]="'input search text'" [nzFilter]="false" [(ngModel)]="loadApi" [nzSize]="'large'"
+                        (nzSearchChange)="searchApi($event)" [nzNotFoundContent]="'无法找到'" formControlName="loadApi" nzShowSearch>
+                        <nz-option *ngFor="let option of searchApiOptions" [nzLabel]="option[0]" [nzValue]="option[0]">
+                        </nz-option>
+                    </nz-select>
+
                     <div nz-form-explain *ngIf="getFormControl(1, 'loadApi').dirty&&getFormControl(1, 'loadApi').hasError('required')">The input is not valid componentName</div>
                 </div>
             </div>
@@ -56,7 +65,12 @@
                     </label>
                 </div>
                 <div nz-form-control nz-col [nzSm]="14" [nzXs]="24" nzHasFeedback>
-                    <nz-input [nzSize]="'large'" formControlName="deleteApi" [nzId]="'deleteApi'"></nz-input>
+                    <nz-select nzAllowClear [nzPlaceHolder]="'input search text'" [nzFilter]="false" [(ngModel)]="deleteApi" [nzSize]="'large'"
+                        (nzSearchChange)="searchApi($event)" [nzNotFoundContent]="'无法找到'" formControlName="deleteApi" nzShowSearch>
+                        <nz-option *ngFor="let option of searchApiOptions" [nzLabel]="option[0]" [nzValue]="option[0]">
+                        </nz-option>
+                    </nz-select>
+
                     <div nz-form-explain *ngIf="getFormControl(1, 'deleteApi').dirty&&getFormControl(1, 'deleteApi').hasError('required')">The input is not valid componentName</div>
                 </div>
             </div>
@@ -74,7 +88,11 @@
                     </label>
                 </div>
                 <div nz-form-control nz-col [nzSm]="14" [nzXs]="24" nzHasFeedback>
-                    <nz-input [nzSize]="'large'" formControlName="deleteModel" [nzId]="'deleteModel'"></nz-input>
+                    <nz-select nzAllowClear [nzPlaceHolder]="'input search text'" [nzFilter]="false" [(ngModel)]="deleteModel" [nzSize]="'large'"
+                        (nzSearchChange)="searchModel($event)" [nzNotFoundContent]="'无法找到'" formControlName="deleteModel" nzShowSearch>
+                        <nz-option *ngFor="let option of searchModelOptions" [nzLabel]="option[0]" [nzValue]="option[0]">
+                        </nz-option>
+                    </nz-select>
                     <div nz-form-explain *ngIf="getFormControl(1, 'deleteModel').dirty&&getFormControl(1, 'deleteModel').hasError('required')">Please input your deleteModel!</div>
                 </div>
             </div>
@@ -114,7 +132,11 @@
                     </label>
                 </div>
                 <div nz-form-control nz-col [nzSm]="14" [nzXs]="24" nzHasFeedback>
-                    <nz-input [nzSize]="'large'" formControlName="columns" [nzId]="'columns'"></nz-input>
+                    <nz-select nzAllowClear [nzPlaceHolder]="'input search text'" [nzFilter]="false" [(ngModel)]="columns" [nzSize]="'large'"
+                        (nzSearchChange)="searchColumns($event)" [nzNotFoundContent]="'无法找到'" formControlName="columns" nzShowSearch>
+                        <nz-option *ngFor="let option of searchColumnsOptions" [nzLabel]="option[0]" [nzValue]="option[0]">
+                        </nz-option>
+                    </nz-select>
                     <div nz-form-explain *ngIf="getFormControl(2, 'columns').dirty&&getFormControl(2, 'columns').hasError('required')">The input is not valid componentName</div>
                 </div>
             </div>
@@ -128,7 +150,11 @@
                     </label>
                 </div>
                 <div nz-form-control nz-col [nzSm]="14" [nzXs]="24" nzHasFeedback>
-                    <nz-input [nzSize]="'large'" formControlName="editModel" [nzId]="'editModel'"></nz-input>
+                    <nz-select nzAllowClear [nzPlaceHolder]="'input search text'" [nzFilter]="false" [(ngModel)]="editModel" [nzSize]="'large'"
+                        (nzSearchChange)="searchModel($event)" [nzNotFoundContent]="'无法找到'" formControlName="editModel" nzShowSearch>
+                        <nz-option *ngFor="let option of searchModelOptions" [nzLabel]="option[0]" [nzValue]="option[0]">
+                        </nz-option>
+                    </nz-select>
                     <div nz-form-explain *ngIf="getFormControl(2, 'editModel').dirty&&getFormControl(2, 'editModel').hasError('required')">The input is not valid componentName</div>
                 </div>
             </div>
@@ -146,7 +172,12 @@
                     </label>
                 </div>
                 <div nz-form-control nz-col [nzSm]="14" [nzXs]="24" nzHasFeedback>
-                    <nz-input [nzSize]="'large'" formControlName="updateApi" [nzId]="'updateApi'"></nz-input>
+                    <nz-select nzAllowClear [nzPlaceHolder]="'input search text'" [nzFilter]="false" [(ngModel)]="updateApi" [nzSize]="'large'"
+                        (nzSearchChange)="searchApi($event)" [nzNotFoundContent]="'无法找到'" formControlName="updateApi" nzShowSearch>
+                        <nz-option *ngFor="let option of searchApiOptions" [nzLabel]="option[0]" [nzValue]="option[0]">
+                        </nz-option>
+                    </nz-select>
+
                     <div nz-form-explain *ngIf="getFormControl(2, 'updateApi').dirty&&getFormControl(2, 'updateApi').hasError('required')">Please input your deleteModel!</div>
                 </div>
             </div>
