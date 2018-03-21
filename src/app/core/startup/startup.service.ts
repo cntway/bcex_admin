@@ -56,7 +56,7 @@ export class StartupService {
                     const m = {};
                     m['text'] = row['menuname'];
                     m['link'] = row['pagehref'];
-                    m['icon'] = row['icon-speedometer'];
+                    m['icon'] = row['remark'];
                     m['group'] = (row['parentid'] === 0);
                     m['translate'] = row['menuname'];
                     m['id'] = row['menuid'];
@@ -64,6 +64,7 @@ export class StartupService {
                     menuList.push(m);
                 }
                 menuList = this.transData(menuList, 'id', 'parentid', 'children');
+                console.log(menuList);
                 // 初始化菜单
                 this.menuService.add(menuList);
                 this.menuService.resume();

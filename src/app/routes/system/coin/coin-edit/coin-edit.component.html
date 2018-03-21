@@ -1,0 +1,99 @@
+﻿<div class="modal-header">
+    <div class="modal-title">{{title|translate}}</div>
+</div>
+<form #f="ngForm" nz-form [formGroup]="validateForm">
+
+    <div nz-form-item nz-row>
+        <div nz-form-label nz-col [nzSm]="6" [nzXs]="24">
+            <label for="coincode" nz-form-item-required>
+                <span>
+                    {{'币代码'|translate}}
+                </span>
+            </label>
+        </div>
+        <div nz-form-control nz-col [nzSm]="14" [nzXs]="24" nzHasFeedback>
+            <nz-input [nzSize]="'large'" formControlName="coincode"></nz-input>
+            <div nz-form-explain *ngIf="getFormControl('coincode').dirty&&getFormControl('coincode').hasError('required')">{{'Please input coincode!'|translate}}</div>
+        </div>
+    </div>
+
+
+    <div nz-form-item nz-row>
+        <div nz-form-label nz-col [nzSm]="6" [nzXs]="24">
+            <label for="coincnname" nz-form-item-required>
+                <span>
+                    {{'币种中文名'|translate}}
+                </span>
+            </label>
+        </div>
+        <div nz-form-control nz-col [nzSm]="14" [nzXs]="24" nzHasFeedback>
+            <nz-input [nzSize]="'large'" formControlName="coincnname"></nz-input>
+            <div nz-form-explain *ngIf="getFormControl('coincnname').dirty&&getFormControl('coincnname').hasError('required')">{{'Please input coincnname!'|translate}}</div>
+        </div>
+    </div>
+
+
+
+    <div nz-form-item nz-row>
+        <div nz-form-label nz-col [nzSm]="6" [nzXs]="24">
+            <label for="coinname" nz-form-item-required>
+                <span>
+                    {{'币种名称'|translate}}
+                </span>
+            </label>
+        </div>
+        <div nz-form-control nz-col [nzSm]="14" [nzXs]="24" nzHasFeedback>
+            <nz-input [nzSize]="'large'" formControlName="coinname"></nz-input>
+            <div nz-form-explain *ngIf="getFormControl('coinname').dirty&&getFormControl('coinname').hasError('required')">{{'Please input coinname!'|translate}}</div>
+        </div>
+    </div>
+
+
+
+    <div nz-form-item nz-row>
+        <div nz-form-label nz-col [nzSm]="6" [nzXs]="24">
+            <label for="wdstatus" nz-form-item-required>
+                <span>
+                    {{'提现状态'|translate}}
+                </span>
+            </label>
+        </div>
+        <div nz-form-control nz-col [nzSm]="14" [nzXs]="24" nzHasFeedback>
+            <app-zselect [data]="bcexs_enums.IOStatusEnumTranslate" formControlName="wdstatus"></app-zselect>
+            <div nz-form-explain *ngIf="getFormControl('wdstatus').dirty&&getFormControl('wdstatus').hasError('required')">{{'Please input wdstatus!'|translate}}</div>
+        </div>
+    </div>
+
+    <div nz-form-item nz-row>
+        <div nz-form-label nz-col [nzSm]="6" [nzXs]="24">
+            <label for="refillstatus" nz-form-item-required>
+                <span>
+                    {{'充值状态'|translate}}
+                </span>
+            </label>
+        </div>
+        <div nz-form-control nz-col [nzSm]="14" [nzXs]="24" nzHasFeedback>
+            <app-zselect [data]="bcexs_enums.IOStatusEnumTranslate" formControlName="refillstatus"></app-zselect>
+            <div nz-form-explain *ngIf="getFormControl('refillstatus').dirty&&getFormControl('refillstatus').hasError('required')">{{'Please input refillstatus!'|translate}}</div>
+        </div>
+    </div>
+
+    <div nz-form-item nz-row>
+        <div nz-form-label nz-col [nzSm]="6" [nzXs]="24">
+            <label for="pubtime" nz-form-item-required>
+                <span>
+                    {{'pubtime'|translate}}
+                </span>
+            </label>
+        </div>
+        <div nz-form-control nz-col [nzSm]="14" [nzXs]="24" nzHasFeedback>
+            <nz-input [nzSize]="'large'" formControlName="pubtime"></nz-input>
+            <div nz-form-explain *ngIf="getFormControl('pubtime').dirty&&getFormControl('pubtime').hasError('required')">{{'Please input pubtime!'|translate}}</div>
+        </div>
+    </div>
+
+</form>
+<div class="modal-footer">
+    <button nz-button type="button" (click)="close()">{{"关闭"|translate}}</button>
+    <button nz-button (click)="save()" [disabled]="!f.form.valid || !f.form.dirty" [nzLoading]="http.loading" [nzType]="'primary'">{{"保存"|translate}}</button>
+</div>

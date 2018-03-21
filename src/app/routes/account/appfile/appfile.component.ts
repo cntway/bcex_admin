@@ -143,8 +143,8 @@ export class AppfileComponent implements OnInit {
                 import { QueryParam } from '@sdk/sdk.util';
                 import * as sdk_model from '@sdk/sdk.model';
                 import * as skd_columns from '@sdk/sdk.columns';
-                import { ${componentDf['componentName']}AddComponent } from './${componentDf['componentName']}-add/${componentDf['componentName']}-add.component';
-                import { ${componentDf['componentName']}EditComponent } from './${componentDf['componentName']}-edit/${componentDf['componentName']}-edit.component';
+                import { ${this.makeClassName(componentDf['componentName'])}AddComponent } from './${componentDf['componentName']}-add/${componentDf['componentName']}-add.component';
+                import { ${this.makeClassName(componentDf['componentName'])}EditComponent } from './${componentDf['componentName']}-edit/${componentDf['componentName']}-edit.component';
                 
                 @Component({
                     selector: 'app-${componentDf['componentName']}',
@@ -152,10 +152,10 @@ export class AppfileComponent implements OnInit {
                 })
                 export class ${this.makeClassName(componentDf['componentName'])}Component extends ComponentBase {
 
-                    public deleteModel = ${componentDf['deleteModel']};
+                    public deleteModel = sdk_model.${componentDf['deleteModel']};
                     public columns: Array<any> = skd_columns.${componentDf['columns']};
-                    public editComponent = ${componentDf['componentName']}EditComponent;
-                    public addComponent = ${componentDf['componentName']}AddComponent;
+                    public editComponent = ${this.makeClassName(componentDf['componentName'])}EditComponent;
+                    public addComponent = ${this.makeClassName(componentDf['componentName'])}AddComponent;
 
                     loadData(): Observable<any> {
                         const parma_list = [];

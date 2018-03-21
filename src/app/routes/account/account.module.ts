@@ -13,6 +13,9 @@ import { UserEidtComponent } from './user/user-eidt/user-eidt.component';
 import { AppfileComponent } from './appfile/appfile.component';
 import { RoleAddComponent } from './role/role-add/role-add.component';
 import { RoleRightComponent } from './role/role-right/role-right.component';
+import { VipruleComponent } from './viprule/viprule.component';
+import { VipruleAddComponent } from './viprule/viprule-add/viprule-add.component';
+import { VipruleEditComponent } from './viprule/viprule-edit/viprule-edit.component';
 
 
 const routes: Routes = [
@@ -20,7 +23,8 @@ const routes: Routes = [
     { path: 'manager', component: ManagerComponent },
     { path: 'menu', component: MenuComponent },
     { path: 'user', component: UserComponent },
-    { path: 'appfile', component: AppfileComponent }
+    { path: 'appfile', component: AppfileComponent },
+    { path: 'viprule', component: VipruleComponent },
 
 ];
 
@@ -32,7 +36,9 @@ const COMPONENTS_NOROUNT = [
     UserAddComponent,
     UserEidtComponent,
     RoleAddComponent,
-    RoleRightComponent
+    RoleRightComponent,
+    VipruleEditComponent,
+    VipruleAddComponent,
 ];
 
 @NgModule({
@@ -53,6 +59,9 @@ const COMPONENTS_NOROUNT = [
         AppfileComponent,
         RoleAddComponent,
         RoleRightComponent,
+        VipruleComponent,
+        VipruleAddComponent,
+        VipruleEditComponent,
         MenuEditComponent
     ],
     exports: [

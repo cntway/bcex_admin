@@ -1,0 +1,111 @@
+﻿<div class="modal-header">
+    <div class="modal-title">{{title|translate}}</div>
+</div>
+<form #f="ngForm" nz-form [formGroup]="validateForm">
+
+    <div nz-form-item nz-row>
+        <div nz-form-label nz-col [nzSm]="6" [nzXs]="24">
+            <label for="pairname" nz-form-item-required>
+                <span>
+                    {{'交易对名称'|translate}}
+                </span>
+            </label>
+        </div>
+        <div nz-form-control nz-col [nzSm]="14" [nzXs]="24" nzHasFeedback>
+            <nz-input [nzSize]="'large'" formControlName="pairname"></nz-input>
+            <div nz-form-explain *ngIf="getFormControl('pairname').dirty&&getFormControl('pairname').hasError('required')">{{'Please input pairname!'|translate}}</div>
+        </div>
+    </div>
+
+    <div nz-form-item nz-row>
+        <div nz-form-label nz-col [nzSm]="6" [nzXs]="24">
+            <label for="pairstatus" nz-form-item-required>
+                <span>
+                    {{'交易对状态'|translate}}
+                </span>
+            </label>
+        </div>
+        <div nz-form-control nz-col [nzSm]="14" [nzXs]="24" nzHasFeedback>
+            <app-zselect [data]="bcexs_enums.PairStatusEnumTranslate" formControlName="pairstatus"></app-zselect>
+            <div nz-form-explain *ngIf="getFormControl('pairstatus').dirty&&getFormControl('pairstatus').hasError('required')">{{'Please input pairstatus!'|translate}}</div>
+        </div>
+    </div>
+
+    <div nz-form-item nz-row>
+        <div nz-form-label nz-col [nzSm]="6" [nzXs]="24">
+            <label for="amountscale" nz-form-item-required>
+                <span>
+                    {{'金额小数位'|translate}}
+                </span>
+            </label>
+        </div>
+        <div nz-form-control nz-col [nzSm]="14" [nzXs]="24" nzHasFeedback>
+            <nz-input-number [nzSize]="'large'" formControlName="amountscale" [nzStep]="1" [nzMax]="1000000" [nzMin]="0"></nz-input-number>
+            <div nz-form-explain *ngIf="getFormControl('amountscale').dirty&&getFormControl('amountscale').hasError('required')">{{'Please input amountscale!'|translate}}</div>
+        </div>
+    </div>
+
+    <div nz-form-item nz-row>
+        <div nz-form-label nz-col [nzSm]="6" [nzXs]="24">
+            <label for="pricescale" nz-form-item-required>
+                <span>
+                    {{'报价小数位'|translate}}
+                </span>
+            </label>
+        </div>
+        <div nz-form-control nz-col [nzSm]="14" [nzXs]="24" nzHasFeedback>
+            <nz-input-number [nzSize]="'large'" formControlName="pricescale" [nzStep]="1" [nzMax]="1000000" [nzMin]="0"></nz-input-number>
+            <div nz-form-explain *ngIf="getFormControl('pricescale').dirty&&getFormControl('pricescale').hasError('required')">{{'Please input pricescale!'|translate}}</div>
+        </div>
+    </div>
+
+    <div nz-form-item nz-row>
+        <div nz-form-label nz-col [nzSm]="6" [nzXs]="24">
+            <label for="marketid" nz-form-item-required>
+                <span>
+                    {{'市场id'|translate}}
+                </span>
+            </label>
+        </div>
+        <div nz-form-control nz-col [nzSm]="14" [nzXs]="24" nzHasFeedback>
+            <nz-input-number [nzSize]="'large'" formControlName="marketid" [nzStep]="1" [nzMax]="1000000" [nzMin]="0"></nz-input-number>
+            <div nz-form-explain *ngIf="getFormControl('marketid').dirty&&getFormControl('marketid').hasError('required')">{{'Please input marketid!'|translate}}</div>
+        </div>
+    </div>
+
+    <div nz-form-item nz-row>
+        <div nz-form-label nz-col [nzSm]="6" [nzXs]="24">
+            <label for="symbolcode" nz-form-item-required>
+                <span>
+                    {{'交易对标的币'|translate}}
+                </span>
+            </label>
+        </div>
+        <div nz-form-control nz-col [nzSm]="14" [nzXs]="24" nzHasFeedback>
+            <nz-input [nzSize]="'large'" formControlName="symbolcode"></nz-input>
+            <div nz-form-explain *ngIf="getFormControl('symbolcode').dirty&&getFormControl('symbolcode').hasError('required')">{{'Please input symbolcode!'|translate}}</div>
+        </div>
+    </div>
+    
+
+    <div nz-form-item nz-row>
+        <div nz-form-label nz-col [nzSm]="6" [nzXs]="24">
+            <label for="currencycode" nz-form-item-required>
+                <span>
+                    {{'交易对结算币'|translate}}
+                </span>
+            </label>
+        </div>
+        <div nz-form-control nz-col [nzSm]="14" [nzXs]="24" nzHasFeedback>
+            <nz-input [nzSize]="'large'" formControlName="currencycode"></nz-input>
+            <div nz-form-explain *ngIf="getFormControl('currencycode').dirty&&getFormControl('currencycode').hasError('required')">{{'Please input currencycode!'|translate}}</div>
+        </div>
+    </div>
+
+
+
+</form>
+<div class="modal-footer">
+    <button nz-button type="button" (click)="close()">{{"关闭"|translate}}</button>
+    <button nz-button (click)="save()" [disabled]="!f.form.valid || !f.form.dirty" [nzLoading]="http.loading" [nzType]="'primary'">{{"保存"|translate}}</button>
+</div>

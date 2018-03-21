@@ -125,7 +125,7 @@ export class UserLoginComponent implements OnDestroy {
                     const m = {};
                     m['text'] = row['menuname'];
                     m['link'] = row['pagehref'];
-                    m['icon'] = row['icon-speedometer'];
+                    m['icon'] = row['remark'];
                     m['group'] = (row['parentid'] === 0);
                     m['translate'] = row['menuname'];
                     m['id'] = row['menuid'];
