@@ -64,7 +64,6 @@ export class StartupService {
                     menuList.push(m);
                 }
                 menuList = this.transData(menuList, 'id', 'parentid', 'children');
-                console.log(JSON.stringify(menuList));
                 // 初始化菜单
                 this.menuService.add(menuList);
                 this.menuService.resume();

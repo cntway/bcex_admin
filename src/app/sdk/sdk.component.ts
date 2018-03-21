@@ -5,6 +5,9 @@ import { ModalHelper, _HttpClient } from '@delon/theme';
 import { SdkService } from '@sdk/sdk.service';
 import { NzModalSubject } from 'ng-zorro-antd';
 import * as model_sdk from '@sdk/sdk.model';
+import * as users_enums from '@sdk/sdk.users_enum';
+import * as bcexs_enums from '@sdk/sdk.bcexs_enum';
+import * as admins_enums from '@sdk/sdk.admins_enum';
 import {
     FormBuilder,
     FormGroup,
@@ -114,6 +117,9 @@ export abstract class EditComponentBase implements OnInit {
     i: any;
     _isNew: boolean;
     validateForm: FormGroup;
+    admins_enums=admins_enums;
+    users_enums=users_enums;
+    bcexs_enums=bcexs_enums
 
     abstract columns: any;
     abstract edit_model: any;

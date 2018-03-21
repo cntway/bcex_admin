@@ -89,6 +89,16 @@ export class MenuSelectComponent implements OnInit, ControlValueAccessor {
                     row['name'] = row['menuname'];
                     row['id'] = row['menuid'];
                 }
+                results.push({
+                    "name" : "根目录",
+                    "id" : 0,
+                    "menuid": 0,
+                    "menuname": "根目录",
+                    "sortid": 0,
+                    "parentid": -1,
+                    "parentids": ","
+                })
+
                 return results;
             }).subscribe((res) => {
                 this.nodes = this.transData(res, 'menuid', 'parentid', 'chindren');

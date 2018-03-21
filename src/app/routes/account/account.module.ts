@@ -12,6 +12,7 @@ import { UserAddComponent } from './user/user-add/user-add.component';
 import { UserEidtComponent } from './user/user-eidt/user-eidt.component';
 import { AppfileComponent } from './appfile/appfile.component';
 import { RoleAddComponent } from './role/role-add/role-add.component';
+import { RoleRightComponent } from './role/role-right/role-right.component';
 
 
 const routes: Routes = [
@@ -31,6 +32,7 @@ const COMPONENTS_NOROUNT = [
     UserAddComponent,
     UserEidtComponent,
     RoleAddComponent,
+    RoleRightComponent
 ];
 
 @NgModule({
@@ -50,6 +52,7 @@ const COMPONENTS_NOROUNT = [
         UserEidtComponent,
         AppfileComponent,
         RoleAddComponent,
+        RoleRightComponent,
         MenuEditComponent
     ],
     exports: [

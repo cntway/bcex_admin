@@ -3,17 +3,18 @@
 </div>
 <form #f="ngForm" nz-form [formGroup]="validateForm">
 
+
     <div nz-form-item nz-row>
         <div nz-form-label nz-col [nzSm]="6" [nzXs]="24">
-            <label for="rolename" nz-form-item-required>
+            <label for="roleid" nz-form-item-required>
                 <span>
-                    角色名称
+                    {{'角色id'|translate}}
                 </span>
             </label>
         </div>
         <div nz-form-control nz-col [nzSm]="14" [nzXs]="24" nzHasFeedback>
-            <nz-input [nzSize]="'large'" formControlName="rolename"></nz-input>
-            <div nz-form-explain *ngIf="getFormControl('rolename').dirty&&getFormControl('rolename').hasError('required')">{{'Please input rolename!'|translate}}</div>
+            <nz-input-number [nzSize]="'large'" formControlName="roleid" [nzStep]="1" [nzMax]="1000000" [nzMin]="0"></nz-input-number>
+            <div nz-form-explain *ngIf="getFormControl('roleid').dirty&&getFormControl('roleid').hasError('required')">{{'Please input roleid!'|translate}}</div>
         </div>
     </div>
 

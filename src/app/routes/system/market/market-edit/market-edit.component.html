@@ -1,0 +1,111 @@
+﻿<div class="modal-header">
+    <div class="modal-title">{{title|translate}}</div>
+</div>
+<form #f="ngForm" nz-form [formGroup]="validateForm">
+
+    <div nz-form-item nz-row>
+        <div nz-form-label nz-col [nzSm]="6" [nzXs]="24">
+            <label for="marketname" nz-form-item-required>
+                <span>
+                    {{'交易市场名称'|translate}}
+                </span>
+            </label>
+        </div>
+        <div nz-form-control nz-col [nzSm]="14" [nzXs]="24" nzHasFeedback>
+            <nz-input [nzSize]="'large'" formControlName="marketname"></nz-input>
+            <div nz-form-explain *ngIf="getFormControl('marketname').dirty&&getFormControl('marketname').hasError('required')">{{'Please input marketname!'|translate}}</div>
+        </div>
+    </div>
+
+    <div nz-form-item nz-row>
+        <div nz-form-label nz-col [nzSm]="6" [nzXs]="24">
+            <label for="opofocmarket" nz-form-item-required>
+                <span>
+                    {{'开休市模式'|translate}}
+                </span>
+            </label>
+        </div>
+        <div nz-form-control nz-col [nzSm]="14" [nzXs]="24" nzHasFeedback>
+            <app-zselect [data]="bcexs_enums.OperatorEnumTranslate" formControlName="opofocmarket"></app-zselect>
+            <div nz-form-explain *ngIf="getFormControl('opofocmarket').dirty&&getFormControl('opofocmarket').hasError('required')">{{'Please input opofocmarket!'|translate}}</div>
+        </div>
+    </div>
+
+    <div nz-form-item nz-row>
+        <div nz-form-label nz-col [nzSm]="6" [nzXs]="24">
+            <label for="trademodel" nz-form-item-required>
+                <span>
+                    {{'交易模式'|translate}}
+                </span>
+            </label>
+        </div>
+        <div nz-form-control nz-col [nzSm]="14" [nzXs]="24" nzHasFeedback>
+            <app-zselect [data]="bcexs_enums.MarketModeEnumTranslate" formControlName="trademodel"></app-zselect>
+            <div nz-form-explain *ngIf="getFormControl('trademodel').dirty&&getFormControl('trademodel').hasError('required')">{{'Please input trademodel!'|translate}}</div>
+        </div>
+    </div>
+
+
+    <div nz-form-item nz-row>
+        <div nz-form-label nz-col [nzSm]="6" [nzXs]="24">
+            <label for="settlementtype" nz-form-item-required>
+                <span>
+                    {{'结算负债模式'|translate}}
+                </span>
+            </label>
+        </div>
+        <div nz-form-control nz-col [nzSm]="14" [nzXs]="24" nzHasFeedback>
+            <app-zselect [data]="bcexs_enums.SettlementEnumTranslate" formControlName="settlementtype"></app-zselect>
+            <div nz-form-explain *ngIf="getFormControl('settlementtype').dirty&&getFormControl('settlementtype').hasError('required')">{{'Please input settlementtype!'|translate}}</div>
+        </div>
+    </div>
+
+    <div nz-form-item nz-row>
+        <div nz-form-label nz-col [nzSm]="6" [nzXs]="24">
+            <label for="opofsettlement" nz-form-item-required>
+                <span>
+                    {{'结算模式'|translate}}
+                </span>
+            </label>
+        </div>
+        <div nz-form-control nz-col [nzSm]="14" [nzXs]="24" nzHasFeedback>
+            <app-zselect [data]="bcexs_enums.OperatorEnumTranslate" formControlName="opofsettlement"></app-zselect>
+            <div nz-form-explain *ngIf="getFormControl('opofsettlement').dirty&&getFormControl('opofsettlement').hasError('required')">{{'Please input opofsettlement!'|translate}}</div>
+        </div>
+    </div>
+
+    <div nz-form-item nz-row>
+        <div nz-form-label nz-col [nzSm]="6" [nzXs]="24">
+            <label for="risktype" nz-form-item-required>
+                <span>
+                    {{'风险率计算公式'|translate}}
+                </span>
+            </label>
+        </div>
+        <div nz-form-control nz-col [nzSm]="14" [nzXs]="24" nzHasFeedback>
+            <app-zselect [data]="bcexs_enums.RiskEnumTranslate" formControlName="risktype"></app-zselect>
+            <div nz-form-explain *ngIf="getFormControl('risktype').dirty&&getFormControl('risktype').hasError('required')">{{'Please input risktype!'|translate}}</div>
+        </div>
+    </div>
+
+    <div nz-form-item nz-row>
+        <div nz-form-label nz-col [nzSm]="6" [nzXs]="24">
+            <label for="tradestatus" nz-form-item-required>
+                <span>
+                    {{'交易状态'|translate}}
+                </span>
+            </label>
+        </div>
+        <div nz-form-control nz-col [nzSm]="14" [nzXs]="24" nzHasFeedback>
+            <app-zselect [data]="bcexs_enums.TradeStatusEnumTranslate" formControlName="tradestatus"></app-zselect>
+            <div nz-form-explain *ngIf="getFormControl('tradestatus').dirty&&getFormControl('tradestatus').hasError('required')">{{'Please input tradestatus!'|translate}}</div>
+        </div>
+    </div>
+
+
+
+</form>
+<div class="modal-footer">
+    <button nz-button type="button" (click)="close()">{{"关闭"|translate}}</button>
+    <button nz-button (click)="save()" [disabled]="!f.form.valid || !f.form.dirty" [nzLoading]="http.loading" [nzType]="'primary'">{{"保存"|translate}}</button>
+</div>

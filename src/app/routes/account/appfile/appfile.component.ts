@@ -84,7 +84,7 @@ export class AppfileComponent implements OnInit {
         let componentTemplate = this.editTemplate(componentDf);
 
         let blobComponent = new Blob([componentTs], { type: "text/plain;charset=utf-8" });
-        FileSaver.saveAs(blobComponent, `${this.nameChange(componentDf['componentName'])}.component/.ts`);
+        FileSaver.saveAs(blobComponent, `${this.nameChange(componentDf['componentName'])}.component.ts`);
 
         let blobHtml = new Blob([componentTemplate], { type: "text/plain;charset=utf-8" });
         FileSaver.saveAs(blobHtml, `${this.nameChange(componentDf['componentName'])}.component.html`);
@@ -144,7 +144,7 @@ export class AppfileComponent implements OnInit {
                 import * as sdk_model from '@sdk/sdk.model';
                 import * as skd_columns from '@sdk/sdk.columns';
                 import { ${componentDf['componentName']}AddComponent } from './${componentDf['componentName']}-add/${componentDf['componentName']}-add.component';
-                import { ${componentDf['componentName']}EidtComponent } from './${componentDf['componentName']}-eidt/${componentDf['componentName']}-eidt.component';
+                import { ${componentDf['componentName']}EditComponent } from './${componentDf['componentName']}-edit/${componentDf['componentName']}-edit.component';
                 
                 @Component({
                     selector: 'app-${componentDf['componentName']}',
@@ -154,7 +154,7 @@ export class AppfileComponent implements OnInit {
 
                     public deleteModel = ${componentDf['deleteModel']};
                     public columns: Array<any> = skd_columns.${componentDf['columns']};
-                    public editComponent = ${componentDf['componentName']}EidtComponent;
+                    public editComponent = ${componentDf['componentName']}EditComponent;
                     public addComponent = ${componentDf['componentName']}AddComponent;
 
                     loadData(): Observable<any> {
@@ -251,7 +251,6 @@ export class AppfileComponent implements OnInit {
         const tpl = `
         import { Component } from '@angular/core';
         import { EditComponentBase } from '@sdk/sdk.component';
-        import * as users_enum from '@sdk/sdk.admins_enum';
         import * as skd_columns from '@sdk/sdk.columns';
         import * as sdk_model from '@sdk/sdk.model';
         
@@ -283,7 +282,7 @@ export class AppfileComponent implements OnInit {
         <div class="modal-header">
             <div class="modal-title">{{title|translate}}</div>
         </div>
-        <form #f="ngForm" nz-form [formGroup]="validateForm" (ngSubmit)="_submitForm()">
+        <form #f="ngForm" nz-form [formGroup]="validateForm">
 
         `
         let tpl_end = `
@@ -312,7 +311,7 @@ export class AppfileComponent implements OnInit {
                 tpl += this.getNumber(index, this.getFieldName(index, componentDf));
             }
             if (this.isEnum(type, index)) {
-                tpl += this.getEnum(index, this.getFieldName(index, componentDf));
+                tpl += this.getEnum(index, this.getFieldName(index, componentDf), fields_options[index]['typeValue']);
             }
             if (this.isDate(type, index)) {
                 tpl += this.getDate(index, this.getFieldName(index, componentDf));
@@ -363,7 +362,7 @@ export class AppfileComponent implements OnInit {
         return sdk_model.FLOAT_LIST.indexOf(key) > -1 || key === 'int32' || key === 'int64' || sdk_model.UINT_LIAT.indexOf(key) > -1;
     }
     isEnum(key: string, filedName: string): boolean {
-        return key.length > 4 && key.slice(0, 4) === 'Enum';
+        return key.length > 4 && (key.slice(0, 4) === 'Enum' || key.slice(-4) === 'Enum');
     }
 
 
@@ -414,7 +413,7 @@ export class AppfileComponent implements OnInit {
         <div nz-form-label nz-col [nzSm]="6" [nzXs]="24">
             <label for="${key}" nz-form-item-required>
                 <span>
-                    ${label}
+                    {{'${label}'|translate}}
                 </span>
             </label>
         </div>
@@ -433,7 +432,7 @@ export class AppfileComponent implements OnInit {
         <div nz-form-label nz-col [nzSm]="6" [nzXs]="24">
             <label for="${key}" nz-form-item-required>
                 <span>
-                    ${label}
+                    {{'${label}'|translate}}
                 </span>
             </label>
         </div>
@@ -446,18 +445,18 @@ export class AppfileComponent implements OnInit {
         return tpl;
     }
 
-    getEnum(key, label) {
+    getEnum(key, label, typeValue) {
         let tpl = `
         <div nz-form-item nz-row>
         <div nz-form-label nz-col [nzSm]="6" [nzXs]="24">
             <label for="${key}" nz-form-item-required>
                 <span>
-                    ${label}
+                    {{'${label}'|translate}}
                 </span>
             </label>
         </div>
         <div nz-form-control nz-col [nzSm]="14" [nzXs]="24" nzHasFeedback>
-            <app-zselect  [data]="options" formControlName="${key}" ></app-zselect>
+            <app-zselect  [data]="${typeValue}Translate" formControlName="${key}" ></app-zselect>
             <div nz-form-explain *ngIf="getFormControl('${key}').dirty&&getFormControl('${key}').hasError('required')">{{'Please input ${key}!'|translate}}</div>
         </div>
         </div>
@@ -471,7 +470,7 @@ export class AppfileComponent implements OnInit {
         <div nz-form-label nz-col [nzSm]="6" [nzXs]="24">
             <label for="${key}" nz-form-item-required>
                 <span>
-                    ${label}
+                     {{'${label}'|translate}}
                 </span>
             </label>
         </div>
@@ -491,7 +490,7 @@ export class AppfileComponent implements OnInit {
         <div nz-form-label nz-col [nzSm]="6" [nzXs]="24">
             <label for="${key}" nz-form-item-required>
                 <span>
-                    ${label}
+                     {{'${label}'|translate}}
                 </span>
             </label>
         </div>

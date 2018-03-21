@@ -115,7 +115,7 @@ export class UserLoginComponent implements OnDestroy {
             this.tokenService.set({
                 token: res.sid,
                 name: this.userName.value,
-                email: `cipchk@qq.com`,
+                email: `cntway@qq.com`,
                 id: 10000,
                 time: +new Date
             });

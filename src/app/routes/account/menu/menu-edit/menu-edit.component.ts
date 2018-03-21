@@ -55,10 +55,10 @@ export class MenuEditComponent implements OnInit {
         param.menuid = this.i.menuid;
         param.parentids = '';
         param.isshow = this.i.isshow;
-        param.parentid = this.i.parentid;
+        param.parentid = parseInt(this.i.parentid);
         param.productid = 1;
         param.isstop = 0;
-        param.sortid = this.i.sortid;
+        param.sortid = parseInt(this.i.sortid);
         param.menuname = this.i.menuname;
         param.pagehref = this.i.pagehref;
         param.commituri = this.i.pagehref;
@@ -74,18 +74,18 @@ export class MenuEditComponent implements OnInit {
 
     add() {
         const param = new model_sdk.SysMenuPost();
-        param.isshow = this.i.isShow;
-        param.parentid = this.i.parentId;
+        param.isshow = this.i.isshow;
+        param.parentid = parseInt(this.i.parentid);
         param.productid = 1;
         param.apikey = '';
         param.isstop = 0;
-        param.sortid = this.i.sort;
-        param.menuname = this.i.text;
-        param.pagehref = this.i.link;
-        param.commituri = this.i.link;
-        param.remark = this.i.text;
-        param.funckey = this.i.link;
-        console.log(param);
+        param.sortid = parseInt(this.i.sortid);
+        param.menuname = this.i.menuname;
+        param.pagehref = this.i.pagehref;
+        param.commituri = this.i.pagehref;
+        param.remark = this.i.remark;
+        param.funckey = this.i.funckey;
+
         this.sdk.sys_menu_post_api(param).subscribe((res) => {
             this.subject.next('onOk');
             this.close();

@@ -194,19 +194,6 @@ export const EnumDataCommitStatusTranslate = {
 }
 
 
-export enum EnumDataReviewStatus { 
-    DRS_IS_WAIT = 0,  // 待审核
-    DRS_IS_PASS = 1,  // 审核通过
-    DRS_IS_REJECT = 2,  // 审核驳回
-}
-
-export const EnumDataReviewStatusTranslate = { 
-    0: '待审核',
-    1: '审核通过',
-    2: '审核驳回',
-}
-
-
 export enum EnumCreateSourceType { 
     CST_HOUTAI = 0,  // 后台开户
     CST_WECHAT = 1,  // 微信
@@ -221,13 +208,15 @@ export const EnumCreateSourceTypeTranslate = {
 
 
 export enum EnumUserAccType { 
-    UAT_SETTLE = 0,  // 清算账户（会员/机构/经纪人）
+    UAT_SETTLE = 0,  // 清算账户
     UAT_NORMAL = 1,  // 普通用户
+    UAT_MANAGER = 2,  // 管理员
 }
 
 export const EnumUserAccTypeTranslate = { 
-    0: '清算账户（会员/机构/经纪人）',
+    0: '清算账户',
     1: '普通用户',
+    2: '管理员',
 }
 
 
