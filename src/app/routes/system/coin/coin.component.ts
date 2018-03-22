@@ -36,8 +36,7 @@ export class CoinComponent extends ComponentBase {
     }
 
     deleteData(data: any) {
-        const param = Object.assign(new this.deleteModel(), data);
-        return this.sdk.undefined(param);
+
     }
 
 

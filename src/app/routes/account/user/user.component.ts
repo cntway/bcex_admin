@@ -6,6 +6,7 @@ import * as sdk_model from '@sdk/sdk.model';
 import * as skd_columns from '@sdk/sdk.columns';
 import { UserAddComponent } from './user-add/user-add.component';
 import { UserEidtComponent } from './user-eidt/user-eidt.component';
+import * as moment from 'moment';
 
 
 @Component({
@@ -31,8 +32,12 @@ export class UserComponent extends ComponentBase {
         });
         return this.sdk.user_users_get_api(parma_list, this.pi).map((res): any => {
             {
+                const format = 'YYYY-MM-DD HH:mm';
                 for (const row of res['results']) {
                     row['jsoncache'] = JSON.stringify(row['jsoncache']);
+                    row['lastresetpwdtime'] = moment(row['lastresetpwdtime']).format(format);
+                    row['lastcreatetime'] = moment(row['lastresetpwdtime']).format(format);
+
                 }
                 return res;
             }

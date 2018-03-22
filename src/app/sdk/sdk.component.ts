@@ -26,6 +26,7 @@ export abstract class ComponentBase implements OnInit, OnDestroy {
     isInitLoad: boolean = false;
     sub: Subscription;
     _loading: boolean;
+    total:null;
 
     public abstract columns: Array<any>;
     public abstract deleteModel: any;
