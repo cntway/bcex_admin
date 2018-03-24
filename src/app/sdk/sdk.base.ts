@@ -2,6 +2,9 @@ import { _HttpClient } from '@delon/theme';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 import { NzMessageService } from 'ng-zorro-antd';
+import { isDate } from 'util';
+import * as moment from 'moment';
+
 
 export const SERVICE_URl = '';
 
@@ -28,11 +31,23 @@ export class SdkBase {
 
     }
 
+    formatDate(val, format = 'YYYYMMDDTHHmmss') {
+        return moment(val).format(format);
+    }
+
     do(method: string, url: string, paramesModel: any): Observable<any> {
         const me = this;
         try {
             if (method !== 'get') {
                 paramesModel.fields_check();
+                paramesModel = paramesModel.field2dict();
+                //对时间格式统一处理
+                for (const key in paramesModel) {
+                    if (isDate(paramesModel[key])) {
+                        paramesModel[key] = this.formatDate(paramesModel[key]);
+                    }
+                }
+
             } else {
                 for (const key in paramesModel) {
                     paramesModel[key] = JSON.stringify(paramesModel[key]);
@@ -44,7 +59,7 @@ export class SdkBase {
         }
         switch (method) {
             case 'post':
-                return this.http.post(url, paramesModel.field2dict()).filter((res: any) => {
+                return this.http.post(url, paramesModel).filter((res: any) => {
                     if (res.error === '0') {
                         return true;
                     } else {
@@ -52,7 +67,7 @@ export class SdkBase {
                     }
                 });
             case 'put':
-                return this.http.put(url, paramesModel.field2dict()).filter(res => {
+                return this.http.put(url, paramesModel).filter(res => {
                     if (res.error === '0') {
                         return true;
                     } else {
@@ -60,7 +75,7 @@ export class SdkBase {
                     }
                 });
             case 'delete':
-                return this.http.request('delete', url, { body: paramesModel.field2dict() }).filter((res: any) => {
+                return this.http.request('delete', url, { body: paramesModel }).filter((res: any) => {
                     if (res.error === '0') {
                         return true;
                     } else {

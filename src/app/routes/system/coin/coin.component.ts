@@ -16,8 +16,8 @@ export class CoinComponent extends ComponentBase {
 
     public deleteModel = null;
     public columns: Array<any> = skd_columns.coin_info_get_columns;
-    public editComponent = CoinAddComponent;
-    public addComponent = CoinEditComponent;
+    public editComponent = CoinEditComponent;
+    public addComponent = CoinAddComponent;
 
     loadData(): Observable<any> {
         const parma_list = [];

@@ -80,12 +80,12 @@
         <div nz-form-label nz-col [nzSm]="6" [nzXs]="24">
             <label for="pubtime" nz-form-item-required>
                 <span>
-                    {{'pubtime'|translate}}
+                    {{'上市时间'|translate}}
                 </span>
             </label>
         </div>
         <div nz-form-control nz-col [nzSm]="14" [nzXs]="24" nzHasFeedback>
-            <nz-input [nzSize]="'large'" formControlName="pubtime"></nz-input>
+            <nz-datepicker [nzSize]="'large'" formControlName="pubtime"></nz-datepicker>
             <div nz-form-explain *ngIf="getFormControl('pubtime').dirty&&getFormControl('pubtime').hasError('required')">{{'Please input pubtime!'|translate}}</div>
         </div>
     </div>

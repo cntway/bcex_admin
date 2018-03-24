@@ -133,11 +133,8 @@ export abstract class EditComponentBase implements OnInit {
         protected subject: NzModalSubject) { }
 
     ngOnInit() {
-        console.log(this.edit_model);
-
         this.isNew();
         const fields_options = this.edit_model.fields_options;
-        console.log(fields_options);
         const group = {}
         for (const index in fields_options) {
             const validator = this.getValidator(index, fields_options[index]);
@@ -174,7 +171,6 @@ export abstract class EditComponentBase implements OnInit {
                 tpl += this.getDateTime(index, this.getFieldName(index));
             }
         }
-        console.log(tpl);
 
     }
 
@@ -201,6 +197,7 @@ export abstract class EditComponentBase implements OnInit {
     getValidator(index, option) {
         const type = option['type'];
         const val = this._isNew ? null : this.i[index];
+
         if (this.isEmail(type, index)) {
             return [val, [Validators.email]];
         }
